@@ -97,4 +97,6 @@ io.on('connection', (socket) => {
     });
 });
 
-export default server; // Export the server for use in Vercel serverless functions
+export default (req, res) => {
+    app(req, res); // Handle request and response in serverless format
+};
