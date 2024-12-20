@@ -4,7 +4,7 @@ build/
 
 # Local configuration file (sdk path, etc)
 local.properties
-
+node_modules/
 # Log/OS Files
 *.log
 
@@ -31,3 +31,4 @@ google-services.json
 
 # Android Profiling
 *.hprof
+.next/
