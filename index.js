@@ -2,7 +2,7 @@ import express from 'express';
 import dotenv from 'dotenv';
 import cors from 'cors';
 import { Server } from 'socket.io';
-import { createServer } from 'http';
+const http  = require('http')
 import AuthRoutes from './routes/AuthRoutes.js';
 import MessageRoutes from './routes/MessageRoutes.js';
 
@@ -17,12 +17,12 @@ app.use('/uploads/images/', express.static('uploads/images'));
 app.use('/api/auth', AuthRoutes);
 app.use('/api/messages', MessageRoutes);
 
-const server = createServer(app); // Create an HTTP server
+const server = http.createServer(app); // Create an HTTP server
 
 const io = new Server(server, {
     cors: {
         origin: 'https://tele-dailer-frontend.vercel.app', // Adjust as needed
-        methods: ['GET', 'POST'],
+        credentials : true
     },
 });
 
