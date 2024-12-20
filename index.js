@@ -5,6 +5,7 @@ import AuthRoutes from "./routes/AuthRoutes.js";
 import MessageRoutes from "./routes/MessageRoutes.js";
 import { Server } from "socket.io";
 
+process.env.PORT=8080||process.env.PORT
 dotenv.config();
 
 const app = express();
