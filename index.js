@@ -17,8 +17,8 @@ app.use("/uploads/images/", express.static("uploads/images"));
 app.use("/api/auth", AuthRoutes);
 app.use("/api/messages", MessageRoutes);
 
-const server = app.listen(process.env.PORT, () => {
-    console.log(`Server started on port ${process.env.PORT}`);
+const server = app.listen(() => {
+    console.log(`Server started`);
 });
 
 const io = new Server(server, {
