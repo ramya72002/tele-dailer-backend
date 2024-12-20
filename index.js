@@ -23,9 +23,11 @@ const server = app.listen( () => {
 
 const io = new Server(server, {
     cors: {
-        origin: "https://tele-dailer-frontend.vercel.app",
-    },
+        origin: "https://tele-dailer-frontend.vercel.app", // Adjust the origin as needed
+        methods: ["GET", "POST"]
+    }
 });
+
 
 global.onlineUsers = new Map();
 
