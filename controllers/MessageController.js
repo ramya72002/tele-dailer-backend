@@ -63,66 +63,66 @@ export const getMessages = async (req, res, next) => {
 };
 
 
-export const addImageMessage = async (req, res, next) => {
-  try {
-    if (req.file) {
-      const date = Date.now();
-      let fileName = "uploads/images/"+date+req.file.originalname;
-      renameSync(req.file.path, fileName);
+// export const addImageMessage = async (req, res, next) => {
+//   try {
+//     if (req.file) {
+//       const date = Date.now();
+//       let fileName = "uploads/images/"+date+req.file.originalname;
+//       renameSync(req.file.path, fileName);
 
-      const prisma = getPrismaInstance();
-      const { from, to } = req.query;
+//       const prisma = getPrismaInstance();
+//       const { from, to } = req.query;
 
-      if (from && to) {
-        const message = await prisma.messages.create({
-          data: {
-            message: fileName,
-            sender: { connect: { id: from } },
-            receiver: { connect: { id: to } },
-            type: "image",
-          },
-        });
+//       if (from && to) {
+//         const message = await prisma.messages.create({
+//           data: {
+//             message: fileName,
+//             sender: { connect: { id: from } },
+//             receiver: { connect: { id: to } },
+//             type: "image",
+//           },
+//         });
 
-        return res.status(201).json({ message });
-      }
-      return res.status(400).send("From and to are required.");
-    }
-    return res.status(400).send("Image is required.");
-  } catch (err) {
-    next(err);
-  }
-};
+//         return res.status(201).json({ message });
+//       }
+//       return res.status(400).send("From and to are required.");
+//     }
+//     return res.status(400).send("Image is required.");
+//   } catch (err) {
+//     next(err);
+//   }
+// };
 
 
-export const addAudioMessage = async (req, res, next) => {
-  try {
-    if (req.file) {
-      const date = Date.now();
-      const fileName = "uploads/recordings/"+date+req.file.originalname;
-      renameSync(req.file.path, fileName);
+// export const addAudioMessage = async (req, res, next) => {
+//   try {
+//     if (req.file) {
+//       const date = Date.now();
+//       const fileName = "uploads/recordings/"+date+req.file.originalname;
+//       renameSync(req.file.path, fileName);
 
-      const prisma = getPrismaInstance();
-      const { from, to } = req.query;
+//       const prisma = getPrismaInstance();
+//       const { from, to } = req.query;
 
-      if (from && to) {
-        const message = await prisma.messages.create({
-          data: {
-            message: fileName,
-            sender: { connect: { id: from } },
-            receiver: { connect: { id: to } },
-            type: "audio",
-          },
-        });
+//       if (from && to) {
+//         const message = await prisma.messages.create({
+//           data: {
+//             message: fileName,
+//             sender: { connect: { id: from } },
+//             receiver: { connect: { id: to } },
+//             type: "audio",
+//           },
+//         });
 
-        return res.status(201).json({ message });
-      }
-      return res.status(400).send("From and to are required.");
-    }
-    return res.status(400).send("Audio is required.");
-  } catch (err) {
-    next(err);
-  }
-};
+//         return res.status(201).json({ message });
+//       }
+//       return res.status(400).send("From and to are required.");
+//     }
+//     return res.status(400).send("Audio is required.");
+//   } catch (err) {
+//     next(err);
+//   }
+// };
 
 
 export const getInitialContactsWithMessages = async (req, res, next) => {
