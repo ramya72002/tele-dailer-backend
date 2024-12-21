@@ -1,16 +1,19 @@
 {
-    "version" : 2,
-    "name" : "Full Stack",
-    "builds" : [
+    "version": 2,
+    "name": "Full Stack",
+    "builds": [
         {
-            "src" : "./index.js",
-            "use" : "@vercel/node"
+            "src": "./index.js",
+            "use": "@vercel/node",
+            "config": {
+                "includeFiles": ["prisma/schema.prisma", "prisma/migrations/**"]
+            }
         }
     ],
-    "routes" : [
+    "routes": [
         {
-            "src" : "/(.*)",
-            "dest" : "/"
+            "src": "/(.*)",
+            "dest": "/"
         }
     ]
 }
