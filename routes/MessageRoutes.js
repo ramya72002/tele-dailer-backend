@@ -1,9 +1,10 @@
 import { Router } from "express";
 
-import {addImageMessage,
+import {
+  // addImageMessage,
      addMessage, 
      getMessages,
-    addAudioMessage, 
+    // addAudioMessage, 
     getInitialContactsWithMessages}
       from "../controllers/MessageController.js";
 // import multer from "multer";
