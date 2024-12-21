@@ -2,7 +2,9 @@
   "type": "module",
   "scripts": {
     "start": "nodemon index.js",
-    "build": "npx prisma generate"
+    "build": "npx prisma generate",
+    "postinstall": "npx prisma generate",
+    "studio": "npx prisma studio"
   },
   "dependencies": {
     "@prisma/client": "^4.14.0",
