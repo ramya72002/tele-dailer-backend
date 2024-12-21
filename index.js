@@ -4,7 +4,7 @@ import cors from "cors";
 import AuthRoutes from "./routes/AuthRoutes.js";
 import MessageRoutes from "./routes/MessageRoutes.js";
 import { Server } from "socket.io";
-const http  = require('http')
+import http from "http";
 
 dotenv.config();
 
